@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysFileWatcher_new", "SysFileWatcher_new.csproj", "{DD71BD3A-DCB7-4ADB-804A-4564F15DC9CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD71BD3A-DCB7-4ADB-804A-4564F15DC9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD71BD3A-DCB7-4ADB-804A-4564F15DC9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD71BD3A-DCB7-4ADB-804A-4564F15DC9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD71BD3A-DCB7-4ADB-804A-4564F15DC9CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C190BF32-224B-4B97-8824-E90ED470BE69}
+	EndGlobalSection
+EndGlobal

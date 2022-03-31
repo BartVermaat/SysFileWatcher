@@ -1,0 +1,10 @@
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Debug\SysFileWatcher_new.exe.config
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Debug\SysFileWatcher_new.exe
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Debug\SysFileWatcher_new.pdb
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.csproj.AssemblyReference.cache
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.csproj.CoreCompileInputs.cache
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.exe
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.pdb
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.FileWatcherService.resources
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.ProjectInstaller.resources
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.csproj.GenerateResource.cache
