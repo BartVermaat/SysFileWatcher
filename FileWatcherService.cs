@@ -149,7 +149,7 @@ namespace SysFileWatcher_new
 
             // Set up a timer.
             Timer timer = new Timer();
-            timer.Interval = 1; // 1 millisecond
+            timer.Interval = 60000; // 60 seconds
             timer.Elapsed += new ElapsedEventHandler(this.OnTimer);
             timer.Start();
             #region Code starts here
