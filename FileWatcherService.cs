@@ -19,7 +19,7 @@ namespace SysFileWatcher_new
 
         private static string updateFullPath = "UPDATE FolderLogs SET latestversion = '0' WHERE folderpath = @fullPath";
         private static string updateOldPath = "UPDATE FolderLogs SET latestversion = '0' WHERE folderpath = @oldFullPath";
-        private static string dbTables = "folderpath, folderchange, datetime, latestversion";
+        private static string dbTables = "folderpath, oldfolderpath, folderchange, datetime, latestversion";
 
         private int eventId = 1;
 
@@ -70,17 +70,17 @@ namespace SysFileWatcher_new
 
         private static void OnCreated(object sender, FileSystemEventArgs e)
         {
-            MakeDataBaseQuery($"INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, 1, @datetime, 1)", e);
+            MakeDataBaseQuery($"INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 1, @datetime, 1)", e);
         }
 
         private static void OnChanged(object sender, FileSystemEventArgs e)
         {
-            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, 2, @datetime, '1')", e);
+            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 2, @datetime, '1')", e);
         }
 
         private static void OnRenamed(object sender, RenamedEventArgs e)
         {
-            var q = $"{updateOldPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, 3, @datetime, 1)";
+            var q = $"{updateOldPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 3, @datetime, 1)";
             using (SqlConnection sqlCon = new SqlConnection("Server=hfb-sql02;Integrated security=SSPI;database=SystemFileWatcher"))
             {
                 SqlCommand sqlda = new SqlCommand(q, sqlCon);
@@ -107,7 +107,7 @@ namespace SysFileWatcher_new
 
         private static void OnDeleted(object sender, FileSystemEventArgs e)
         {
-            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, 4, @datetime, 0)", e);
+            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 4, @datetime, 0)", e);
         }
 
         private static void MakeDataBaseQuery(string q, FileSystemEventArgs e)

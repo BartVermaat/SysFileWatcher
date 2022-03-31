@@ -13,7 +13,7 @@ namespace SysFileWatcher_new
     {
         protected override void OnBeforeInstall(IDictionary savedState)
         {
-            string parameter = "N:\\Temp\Bart\" \"FileWatcherLog";
+            string parameter = "N:\\Temp\\Bart\" \"FileWatcherLog";
             Context.Parameters["assemblypath"] = "\"" + Context.Parameters["assemblypath"] + "\" \"" + parameter + "\"";
             base.OnBeforeInstall(savedState);
         }
