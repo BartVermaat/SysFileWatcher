@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
@@ -16,11 +11,10 @@ namespace SysFileWatcher_new
 {
     public partial class FileWatcherService : ServiceBase
     {
-
         private static string updateFullPath = "UPDATE FolderLogs SET latestversion = '0' WHERE folderpath = @fullPath";
         private static string updateOldPath = "UPDATE FolderLogs SET latestversion = '0' WHERE folderpath = @oldFullPath";
-        private static string dbTables = "folderpath, oldfolderpath, folderchange, datetime, latestversion";
-
+        private static string dbTablesRename = "folderpath, oldfolderpath, folderchange, datetime, latestversion";
+        private static string dbTables = "folderpath, folderchange, datetime, latestversion, revitversion";
         private int eventId = 1;
 
         [DllImport("advapi32.dll", SetLastError = true)]
@@ -68,19 +62,27 @@ namespace SysFileWatcher_new
             public int dwWaitHint;
         };
 
-        private static void OnCreated(object sender, FileSystemEventArgs e)
+        private void OnCreated(object sender, FileSystemEventArgs e)
         {
-            MakeDataBaseQuery($"INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 1, @datetime, 1)", e);
+            eventLog1.WriteEntry("revit file created, before");
+            RevitFile revitFile = new RevitFile($"{e.FullPath}", eventLog1);
+            string revitVersion = revitFile.GetFormat();
+            MakeDataBaseQuery($"INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, 1, @datetime, 1, {revitVersion})", e);
+            eventLog1.WriteEntry("revit file created, after");
         }
 
-        private static void OnChanged(object sender, FileSystemEventArgs e)
+        private void OnChanged(object sender, FileSystemEventArgs e)
         {
-            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 2, @datetime, '1')", e);
+            eventLog1.WriteEntry("revit file changed, before");
+            RevitFile revitFile = new RevitFile($"{e.FullPath}", eventLog1);
+            string revitVersion = revitFile.GetFormat();
+            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, 2, @datetime, 1, {revitVersion})", e);
+            eventLog1.WriteEntry("revit file changed, after");
         }
 
         private static void OnRenamed(object sender, RenamedEventArgs e)
         {
-            var q = $"{updateOldPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 3, @datetime, 1)";
+            var q = $"{updateOldPath} INSERT INTO FolderLogs ({dbTablesRename}) VALUES (@fullPath, @oldFullPath, 3, @datetime, 1)";
             using (SqlConnection sqlCon = new SqlConnection("Server=hfb-sql02;Integrated security=SSPI;database=SystemFileWatcher"))
             {
                 SqlCommand sqlda = new SqlCommand(q, sqlCon);
@@ -105,20 +107,20 @@ namespace SysFileWatcher_new
             }
         }
 
-        private static void OnDeleted(object sender, FileSystemEventArgs e)
+        private void OnDeleted(object sender, FileSystemEventArgs e)
         {
-            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, @oldFullPath, 4, @datetime, 0)", e);
+            MakeDataBaseQuery($"{updateFullPath} INSERT INTO FolderLogs ({dbTables}) VALUES (@fullPath, 4, @datetime, 0, NULL)", e);
         }
 
-        private static void MakeDataBaseQuery(string q, FileSystemEventArgs e)
+        private void MakeDataBaseQuery(string q, FileSystemEventArgs e)
         {
+            eventLog1.WriteEntry("in makedatabasequery");
             using (SqlConnection sqlCon = new SqlConnection("Server=hfb-sql02;Integrated security=SSPI;database=SystemFileWatcher"))
             {
-
-
                 SqlCommand sqlda = new SqlCommand (q, sqlCon);
                 sqlda.Parameters.AddWithValue("@fullPath", e.FullPath);
                 sqlda.Parameters.AddWithValue("@datetime", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                eventLog1.WriteEntry("just before try.");
                 try
                 {
                     sqlCon.Open();
@@ -126,7 +128,17 @@ namespace SysFileWatcher_new
                 }
                 catch (Exception ex)
                 {
-                    sqlCon.Close();
+                    eventLog1.WriteEntry(ex.Message);
+                    try
+                    {
+                        sqlCon.Close();
+                    }
+                    catch (Exception exe)
+                    {
+                        eventLog1.WriteEntry(exe.Message);
+                        throw exe;
+                    }
+                    eventLog1.WriteEntry("after close");
                     string exStr = ex.ToString();
                     string errorQ = $"INSERT INTO ErrorLog (ErrorText, DateTime) VALUES ('{exStr}', @datetime)";
                     SqlCommand errorSqlda = new SqlCommand(errorQ, sqlCon);
@@ -149,7 +161,7 @@ namespace SysFileWatcher_new
 
             // Set up a timer.
             Timer timer = new Timer();
-            timer.Interval = 60000; // 60 seconds
+            timer.Interval = 300000; // 5 minutes
             timer.Elapsed += new ElapsedEventHandler(this.OnTimer);
             timer.Start();
             #region Code starts here

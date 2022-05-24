@@ -1,0 +1,47 @@
+﻿Installing assembly 'C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.InstallLog
+   assemblypath = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe
+Installing service FileWatcherService...
+Creating EventLog source FileWatcherService in log Application...
+Rolling back assembly 'C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.InstallLog
+   assemblypath = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe
+Restoring event log to previous state for source FileWatcherService.
+Uninstalling assembly 'C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.InstallLog
+   assemblypath = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe
+Removing EventLog source FileWatcherService.
+Service FileWatcherService is being removed from the system...
+Service FileWatcherService was successfully removed from the system.
+Installing assembly 'C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.InstallLog
+   assemblypath = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe
+Installing service FileWatcherService...
+Creating EventLog source FileWatcherService in log Application...
+Rolling back assembly 'C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.InstallLog
+   assemblypath = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe
+Restoring event log to previous state for source FileWatcherService.
+Installing assembly 'C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.InstallLog
+   assemblypath = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe
+Installing service FileWatcherService...
+Service FileWatcherService has been successfully installed.
+Creating EventLog source FileWatcherService in log Application...
+Committing assembly 'C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.InstallLog
+   assemblypath = C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe

@@ -8,3 +8,6 @@ C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.
 C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.FileWatcherService.resources
 C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.ProjectInstaller.resources
 C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.csproj.GenerateResource.cache
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Debug\OpenMcdf.dll
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Debug\OpenMcdf.xml
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Debug\SysFileWatcher_new.csproj.CopyComplete

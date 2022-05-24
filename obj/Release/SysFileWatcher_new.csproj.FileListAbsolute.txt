@@ -1,0 +1,13 @@
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe.config
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.exe
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\SysFileWatcher_new.pdb
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\OpenMcdf.dll
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\bin\Release\OpenMcdf.xml
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.csproj.AssemblyReference.cache
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.FileWatcherService.resources
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.ProjectInstaller.resources
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.csproj.GenerateResource.cache
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.csproj.CoreCompileInputs.cache
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.csproj.CopyComplete
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.exe
+C:\Users\b.vermaat\source\repos\SysFileWatcher_new\obj\Release\SysFileWatcher_new.pdb
